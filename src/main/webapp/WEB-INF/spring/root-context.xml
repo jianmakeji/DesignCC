@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+	<bean id="javaMailSenderImpl" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- 基于校验规则的邮件发送方式 -->
+		<!-- SMTP协议介绍 -->
+		<!-- 
+		<property name="host" value="smtp.exmail.qq.com" />
+		<property name="username" value="cidic@cidic.cn" />
+		<property name="password" value="zyhndesign12345" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.timeout">25000</prop>
+				<prop key="mail.smtp.socketFactory.port">465</prop>   
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop> 
+             	<prop key="mail.smtp.socketFactory.fallback">false</prop>
+			</props>
+		</property>
+		 -->
+		<!-- 基于校验规则的邮件发送方式 -->
+		<!-- SMTP协议介绍 -->
+		
+		<property name="host" value="smtp.126.com" />
+		<property name="username" value="d_seniors@126.com" />
+		<property name="password" value="yl2017" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.timeout">25000</prop>
+				<prop key="mail.smtp.socketFactory.port">25</prop>   
+             	<prop key="mail.smtp.socketFactory.fallback">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 会话DAO -->
+	<bean id="sessionDAO"
+		class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+		<property name="activeSessionsCacheName" value="shiro-activeSessionCache" />
+		<property name="sessionIdGenerator" ref="sessionIdGenerator" />
+	</bean>
+
+	<bean id="credentialsMatcher"
+		class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+		<property name="hashAlgorithmName" value="md5" />
+		<property name="hashIterations" value="2" />
+		<property name="storedCredentialsHexEncoded" value="true" />
+	</bean>
+
+	<!-- 会话管理器 -->
+	<bean id="sessionManager"
+		class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+		<property name="globalSessionTimeout" value="1800000" />
+		<property name="deleteInvalidSessions" value="true" />
+		<property name="sessionValidationSchedulerEnabled" value="true" />
+		<property name="sessionDAO" ref="sessionDAO" />
+		<property name="sessionIdCookieEnabled" value="true" />
+		<property name="sessionIdCookie" ref="sessionIdCookie" />
+	</bean>
+
+	<!-- 会话ID生成器 -->
+	<bean id="sessionIdGenerator"
+		class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator" />
+
+	<!-- 会话Cookie模板 -->
+	<bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+		<constructor-arg value="sid" />
+		<property name="httpOnly" value="true" />
+		<property name="maxAge" value="180000" />
+	</bean>
+
+	<bean id="userRealm" class="com.cidic.design.realm.UserRealm">
+		<property name="credentialsMatcher" ref="credentialsMatcher" />
+	</bean>
+
+
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="userRealm" />
+		<property name="sessionManager" ref="sessionManager" />
+	</bean>
+
+
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"  
+    depends-on="lifecycleBeanPostProcessor" /> 
+    
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		 <property name="securityManager" ref="securityManager"/> 
+	</bean>
+	
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- Shiro的核心安全接口，这个属性是必须的 -->
+		<property name="securityManager" ref="securityManager"></property>
+		<!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->
+		<property name="loginUrl" value="/login"></property>
+		<!-- 登录成功后要跳转的连接(本例中此属性用不到，因为登录成功后的处理逻辑在LoginController里硬编码) -->
+		<!-- <property name="successUrl" value="/" ></property> -->
+		<!-- 用户访问未对其授权的资源时，所显示的连接 -->
+		<property name="unauthorizedUrl" value="/"></property>
+		<property name="filterChainDefinitions">
+			<value>
+				/login=anon
+				/countDown=anon
+				/index=anon
+				/news/newsMgr=authc
+				/news/newsCOU=authc
+				/news/createNews=authc
+				/news/deleteNews=authc
+				/news/updateNews=authc
+				/news/findNewsById=anon
+				/news/findNewsByPage=anon
+				/file/*=anon
+				/fileInfo/createFile=authc
+				/fileInfo/deleteFile=authc
+				/fileInfo/updateFile=authc
+				/fileInfo/getAllFile=anon
+				/fileInfo/getFileByType=anon
+				/production/*=authc
+				/group/*=authc
+				/judge/judge=anon
+				/judge/judgeDetail=anon
+				/judge/judgeMgr=authc
+				/judge/judgeCOU=authc
+				/judge/createJudge=authc
+				/judge/deleteJudge=authc
+				/judge/updateJudge=authc
+				/judge/findJudgesByPage=authc
+				/judge/getAllJudge=anon
+				/judge/findJudgeById=authc
+				/review/*=authc
+				/rule/*=anon
+				/stage/createStage=authc
+				/stage/updateStage=authc
+				/stage/deleteStage=authc
+				/stage/getAllStage=anon
+				/user/forgetPwd=anon
+				/user/register=anon
+				/user/update=authc
+				/user/active=anon
+				/user/findYourPwd=anon
+				/user/getFindPwdByCondition=anon
+				/user/resetYourPwd=anon
+				/user/getCode=anon
+				/user/userMgr=authc
+			</value>
+		</property>
+	</bean>
+
+</beans>

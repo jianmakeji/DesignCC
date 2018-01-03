@@ -1,0 +1,329 @@
+html{
+    height: 100%;
+    width:100%;
+}
+body{
+    margin: 0px;
+    padding:0px;
+    height: 100%;
+    position: relative;
+    font-family: "Arail","Microsoft YaHei","Heiti";
+    background: #efefef!important;
+}
+ul{
+    padding:0px;
+    margin: 0px;
+    list-style: none;
+}
+a{
+    text-decoration: none!important;
+}
+label.error{
+    color: red;
+}
+.zyHidden{
+    display: none!important;
+}
+/**
+*复写datatable
+*/
+table.dataTable{
+    margin-top: 20px;
+    width: 100%;
+    border-bottom: #efefef solid 1px;
+}
+table.dataTable thead {
+    background: #fff;
+}
+table.dataTable thead th{
+    color: #333;
+    border: none;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    line-height: 30px!important;
+}
+table.dataTable tr{
+    line-height: 25px!important;
+    border-top: #efefef solid 1px;
+}
+table.dataTable tr.odd{
+    background:#fff;
+}
+table.dataTable tr.even{
+    background:#fff;
+}
+table.dataTable td {
+    padding: 5px!important;
+    text-align: center;
+}
+table.dataTable .thumb{
+    width: 100px;
+    height: auto;
+}
+.dataTables_paginate,.dataTables_info{
+    margin: 15px 0 20px;
+    height:40px;
+    line-height: 40px;
+}
+.paging_full_numbers{
+    height: 40px;
+    line-height: 1;
+}
+.paging_full_numbers a.paginate_button, .paging_full_numbers a.paginate_active{
+    height:40px;
+    line-height: 40px;
+    min-width: 40px;
+    text-align: center;
+    border-radius: 2px;
+    display: inline-block;
+    padding:0 5px;
+    box-sizing: border-box;
+}
+.paging_full_numbers a.paginate_active{
+    background:#56abff;
+    color: #fff !important;
+    border: none;
+}
+.paging_full_numbers a.paginate_button{
+    background:#fff;
+    border: #ddd 1px solid;
+}
+.paging_full_numbers a.paginate_button:hover{
+    background:#ddd;
+}
+/********覆写bootstrap*************/
+.table>tbody>tr>td{
+    vertical-align: middle;
+}
+.panel{
+    border-radius: 0;
+}
+.input-group-btn{
+    z-index: 2;
+}
+.modal-header{
+    position: relative;
+}
+.close{
+    float: none;
+    width:40px;
+    height: 40px;
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+}
+.close:hover{
+    background:#ddd;
+}
+.modal-header .close{
+    position: absolute;
+    top: 10px;
+    right: 20px
+}
+.left{
+    width: 180px;
+}
+.right{
+    border-left: 1px solid #ddd;
+    background: #efefef;
+    padding:10px;
+    position: absolute;
+    left:180px;
+    top:64px;
+    bottom: 0px;
+    right: 0px;
+    overflow: auto;
+}
+.main{
+    width: 100%;
+    margin: 0px auto 0px auto;
+}
+.main .row{
+    margin: 10px auto;
+    position: relative;
+    clear: both;
+}
+.hasRightBorder{
+    border-right:1px solid #ddd;
+}
+.hasLeftBorder{
+    border-left:1px solid #ddd;
+}
+
+.header{
+    position: relative;
+    z-index: 99;
+    background: #333;
+    height: 64px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/**
+*logo
+*/
+.logo{
+    width: 100%;
+    height: 64px;
+    margin: 0px;
+    display: inline-block;
+    color: #fff;
+    line-height: 64px;
+    font-size: 20px;
+    letter-spacing: .05em;
+    vertical-align: middle;
+    padding-left:64px;
+    position: relative;
+}
+.logo .icon{
+    font-size: 32px;
+    display: inline-block;
+    width:64px;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background:url(../../../frontend/images/app/logo_flower.png);
+    background-size: cover;
+}
+/*topNav*/
+.topNav{
+    position: absolute;
+    top:0;
+    right: 0;
+    height: 64px;
+    width:100px;
+}
+.topNav ul{
+    display: flex;
+}
+.topNav ul li{
+    flex:1;
+}
+.topNav ul li a{
+    display: block;
+    width:100%;
+    height: 100%;
+    line-height: 64px;
+    text-align: center;
+    font-size: 12px;
+    color: #efefef;
+}
+.topNav ul li a:hover{
+    color: #ccc;
+}
+/**
+*menu
+*/
+.menu{
+
+}
+.menu .separate{
+    height: 10px;
+    background: #fff;
+}
+.menu .item {
+    min-height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    line-height: 40px;
+    position: relative;
+}
+.menu .item .glyphicon{
+    padding: 0px 10px;
+}
+.menu .item .rightIcon{
+    margin-left: 100px;
+}
+.menu .item .link{
+    font-size: 16px;
+    color: #727171;
+    border-left: 1px solid #edece3;
+    display: inline-block;
+    position: absolute;
+    left:34px;
+    top:0px;
+    bottom: 0px;
+    right:0px;
+    height: 100%;
+    padding-left: 5px;
+}
+.menu .item:hover,.menu .item.active{
+    background: #ffffff;
+}
+.menu .item:hover .link,.menu .item.active .link{
+    color: #56abff;
+}
+.menu .item:hover .subMenu{
+    display: block;
+}
+.menu .subMenu{
+    background: #ffffff;
+    display: none;
+}
+.menu .subMenu .sItem{
+    height: 35px;
+    position: relative;
+}
+.menu .subMenu .sItem .circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #edece3;
+    font-size: 0px;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+.menu .subMenu .sItem .sLink{
+    font-size: 12px;
+    color: #727171;
+    display: inline-block;
+    position: absolute;
+    left:34px;
+    top:0px;
+    bottom: 0px;
+    right:0px;
+    height: 100%;
+    padding-left: 25px;
+}
+.menu .subMenu .sItem:hover .circle {
+    background: #56abff;
+}
+.menu .subMenu .sItem:hover .sLink{
+    color: #56abff;
+}
+
+.welcome{
+    color: #56abff;
+}
+
+
+.tableSearchContainer{
+    position: absolute;
+    top: 0;
+    right:0;
+    width:50%;
+}
+/**
+*loading
+*/
+.zyLoading{
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    opacity: .5;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+    background: #000;
+}
+.zyLoading .zyText{
+    position: absolute;
+    left:50%;
+    top:50%;
+    color:#fff;
+}
