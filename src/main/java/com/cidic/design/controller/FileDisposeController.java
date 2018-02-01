@@ -46,6 +46,7 @@ public class FileDisposeController extends DcController{
 			HttpServletResponse response) {
 		resultModel = new ResultModel();
 
+		System.out.println("File.separator:"+File.separator);
 		if (file.isEmpty()) {
 			throw new DCException(500, "文件未上传");
 		} else {
