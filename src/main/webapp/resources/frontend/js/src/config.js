@@ -16,7 +16,7 @@ var config = {
         filters: {
             all: "*",
             zip: "zip,rar",
-            img: "jpg,JPG,jpeg,JPEG,png,PNG"
+            img: "image/jpg,image/JPG,image/jpeg,image/JPEG,image/png,image/PNG"
         },
         qiNiu: {
             upTokenUrl: "qi-niu/up-token",

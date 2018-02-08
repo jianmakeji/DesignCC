@@ -262,4 +262,16 @@ public class HomeController extends DcController {
 		resultModel.setObject(countDown);
 		return resultModel;
 	}
+	
+	@RequestMapping(value = "/judge", method = RequestMethod.GET)
+	public ModelAndView judgeView(Locale locale, Model model) {
+		try {
+			ModelAndView modelView = new ModelAndView();
+			modelView.setViewName("/frontend/judge/judge");
+			//modelView.addObject(newsList);
+			return modelView;
+		} catch (Exception e) {
+			throw new ServerException(400, "服务器内部出错了");
+		}
+	}
 }
