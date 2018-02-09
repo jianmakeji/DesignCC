@@ -29,9 +29,9 @@
 			<div id="zyStep2Tip" class="zyStepTip zyHidden">
 				<h5 class="zySubTitle">上传要求</h5>
 				<p class="zyText">
-					1. 作品版面大小为<font class="zyFF0000">A1</font>（840mm×594mm）图幅，<font class="zyFF0000">竖构图</font>，jpg格式，精度350dpi；<font class="zyFF0000">不得超过2M</font>。<br> <br> 2.每件参赛作品<font
-						class="zyFF0000">不超过3个版面</font>，版面内容包含主题阐释、效果图、必要的结构图、基本外观尺寸图及设计说明（须是<font class="zyFF0000">中英双语</font>）等<br> <br> 3. 缩略图必须为<font
-						class="zyFF0000">正方形</font>，500-600px， 图片大小<font class="zyFF0000">不得超过1M</font>。<br> <br> 4. 附件采用压缩包（zip）形式，里面包含三张<font class="zyFF0000">350dpi及以上的产品实物照片等信息。压缩包不超过15M</font><br>
+					1. 作品版面大小为<font class="zyFF0000">A1</font>（841mm×1189mm）图幅，<font class="zyFF0000">竖构图</font>，jpg格式，精度350dpi；<font class="zyFF0000">不得超过5M</font>,设计版面图内容包含主题阐释、核心图形及字体、辅助视觉元素、
+					场景应用示例、必要的结构图、尺寸图及设计说明（必须是中英双语）等。<br> <br> 2.媒体附件1个，H5或在线视频链接形式，就设计方案在影像、动画、Web、印刷品、空间环境或交互装置等媒体形式上的应用进行演示和说明。<br>H5，建议使用“木疙瘩”,“iH5”，“MAKA”等H5工具制作，提供预览链接；
+					<br>在线视频，建议制作视频并上传到优酷或腾讯视频，提供预览通用代码。<br>
 					<br> 另外，为保证本次大赛评选的公正性，参赛作品及 版面上不得出现作者所在单位、姓名（包括英文或 拼音缩写）或与作者身份有关的任何图标、图形等 个人信息资料。
 				</p>
 			</div>
@@ -158,38 +158,15 @@
 
 			<div class="zyStepPanel zyHidden" id="zyStep2">
 				<div class="zyForm">
-					<div class="zyFormRow" id="zySelectGroup">
-						<input type="radio" name="groupId" value="1" checked="checked" data-target="#zyProductInfo"><label>产品</label> <input type="radio" name="groupId" value="2"
-							data-target="#zyConceptInfo" style="margin-left: 60px"><label>概念</label>
-					</div>
-
+					
 					<div id="zyProductInfo" class="zyWorkInfoPanel">
-						<div class="zyFormRow">
-							<label class="zyFormLabel">类别：</label>
-							<div class="zyFormControl zySelect" id="zyCategory">
-								<input type="text" class="zyInput"> <input type="hidden" name="category" class="zySelectValue zyActionRequired">
-								<ul class="zyOptionList zyHidden">
-									<li class="zyOption" data-value="">请选择类别</li>
-									<li class="zyOption" data-value="1">生活辅助类</li>
-									<li class="zyOption" data-value="2">智能养老类</li>
-									<li class="zyOption" data-value="3">综合设计类</li>
-								</ul>
-							</div>
-							<span class="zyRequired">*</span>
-						</div>
+						
 						<div class="zyFormRow">
 							<label class="zyFormLabel">标题</label>
 							<div class="zyFormControl">
 								<input type="text" name="title" class="zyInput zyActionRequired">
 							</div>
 							<span class="zyRequired">*</span>
-						</div>
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">网址</label>
-							<div class="zyFormControl">
-								<input type="text" name="weblink" class="zyInput">
-							</div>
 						</div>
 
 						<div class="zyFormRow">
@@ -201,13 +178,12 @@
 						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel">缩略图</label>
-							<div class="zyFormControl zyUploadControl" id="uploadThumbContainer1">
-								<a class="zyBtn zyBtnGray" id="uploadThumbBtn1"> +&nbsp;上传 </a> <img id="thumb1" class="zyActionThumbImage" style="width: 100px"
-									src="resources/frontend/images/app/defaultThumbImage.jpg" /> <input type="hidden" id="thumbUrl1" name="thumb" class="zyActionRequired zyActionThumbImageValue">
+							<label class="zyFormLabel">H5网址</label>
+							<div class="zyFormControl">
+								<input type="text" name="weblink" class="zyInput">
 							</div>
-							<span class="zyRequired">*</span>
 						</div>
+						
 
 						<div class="zyFormRow">
 							<label class="zyFormLabel">图片1</label>
@@ -217,106 +193,11 @@
 							</div>
 							<span class="zyRequired">*</span>
 						</div>
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">图片2</label>
-							<div class="zyFormControl zyUploadControl" id="uploadImageContainer2">
-								<a class="zyBtn zyBtnGray" id="uploadImageBtn2"> +&nbsp;上传 </a> <img id="image2" class="zyActionOtherImage" style="width: 100px"
-									src="resources/frontend/images/app/defaultImage.jpg" /> <input type="hidden" id="imageUrl2" class="zyActionOtherImageValue" name="image">
-							</div>
-						</div>
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">图片3</label>
-							<div class="zyFormControl zyUploadControl" id="uploadImageContainer3">
-								<a class="zyBtn zyBtnGray" id="uploadImageBtn3"> +&nbsp;上传 </a> <img id="image3" class="zyActionOtherImage" style="width: 100px"
-									src="resources/frontend/images/app/defaultImage.jpg" /> <input type="hidden" id="imageUrl3" class="zyActionOtherImageValue" name="image">
-							</div>
-						</div>
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">附件</label>
-							<div class="zyFormControl" id="uploadAttachContainer">
-								<a class="zyBtn zyBtnGray" id="uploadAttachBtn"> +&nbsp;上传 </a> <a id="attach" class="zy20C7BE zyActionAttach" style="margin-left: 50px;"></a> <input type="hidden"
-									id="attachUrl" class="zyActionAttachValue" name="attachFile">
-							</div>
-						</div>
-
-					</div>
-
-					<div id="zyConceptInfo" class="zyWorkInfoPanel zyHidden">
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">类别：</label>
-							<div class="zyFormControl zySelect" id="zyConceptCategory">
-								<input type="text" class="zyInput"> <input type="hidden" name="category" class="zySelectValue zyActionRequired">
-								<ul class="zyOptionList zyHidden">
-									<li class="zyOption" data-value="">请选择类别</li>
-									<li class="zyOption" data-value="1">生活辅助类</li>
-									<li class="zyOption" data-value="2">智能养老类</li>
-									<li class="zyOption" data-value="3">综合设计类</li>
-								</ul>
-							</div>
-							<span class="zyRequired">*</span>
-						</div>
-						<div class="zyFormRow">
-							<label class="zyFormLabel">标题</label>
-							<div class="zyFormControl">
-								<input type="text" name="title" class="zyInput zyActionRequired">
-							</div>
-							<span class="zyRequired">*</span>
-						</div>
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">简介</label>
-							<div class="zyFormControl">
-								<textarea name="content" class="zyInput zyTextarea zyActionRequired"></textarea>
-							</div>
-							<span class="zyRequired">*</span>
-						</div>
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">缩略图</label>
-							<div class="zyFormControl zyUploadControl" id="uploadThumbContainer2">
-								<a class="zyBtn zyBtnGray" id="uploadThumbBtn2"> +&nbsp;上传 </a> <img id="thumb2" class="zyActionThumbImage" style="width: 100px"
-									src="resources/frontend/images/app/defaultThumbImage.jpg" /> <input type="hidden" id="thumbUrl2" name="thumb" class="zyActionRequired zyActionThumbImageValue">
-							</div>
-							<span class="zyRequired">*</span>
-						</div>
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">图片1</label>
-							<div class="zyFormControl zyUploadControl" id="uploadImageContainer4">
-								<a class="zyBtn zyBtnGray" id="uploadImageBtn4"> +&nbsp;上传 </a> <img id="image4" class="zyActionOtherImage" style="width: 100px"
-									src="resources/frontend/images/app/defaultImage.jpg" /> <input type="hidden" id="imageUrl4" name="image" class="zyActionRequired zyActionOtherImageValue">
-							</div>
-							<span class="zyRequired">*</span>
-						</div>
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">图片2</label>
-							<div class="zyFormControl zyUploadControl" id="uploadImageContainer5">
-								<a class="zyBtn zyBtnGray" id="uploadImageBtn5"> +&nbsp;上传 </a> <img id="image5" class="zyActionOtherImage" style="width: 100px"
-									src="resources/frontend/images/app/defaultImage.jpg" /> <input type="hidden" id="imageUrl5" name="image" class="zyActionOtherImageValue">
-							</div>
-						</div>
-
-						<div class="zyFormRow">
-							<label class="zyFormLabel">图片3</label>
-							<div class="zyFormControl zyUploadControl" id="uploadImageContainer6">
-								<a class="zyBtn zyBtnGray" id="uploadImageBtn6"> +&nbsp;上传 </a> <img id="image6" class="zyActionOtherImage" style="width: 100px"
-									src="resources/frontend/images/app/defaultImage.jpg" /> <input type="hidden" id="imageUrl6" name="image" class="zyActionOtherImageValue">
-							</div>
-						</div>
 						
-						<div class="zyFormRow">
-							<label class="zyFormLabel">附件</label>
-							<div class="zyFormControl" id="conceptUploadAttachContainer">
-								<a class="zyBtn zyBtnGray" id="conceptUploadAttachBtn"> +&nbsp;上传 </a> <a id="conceptAttach" class="zy20C7BE zyActionAttach" style="margin-left: 50px;"></a> <input type="hidden"
-									id="conceptAttachUrl" class="zyActionAttachValue" name="conceptAttachFile">
-							</div>
-						</div>
+
 					</div>
+
+					
 					<button class="zyBtn zyActionNavBtn" data-target="#zyStep1">上一步</button>
 					<button class="zyBtn zyActionNavBtn" data-target="#zyPreview">下一步</button>
 				</div>

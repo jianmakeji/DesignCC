@@ -74,7 +74,7 @@
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
-			value="jdbc:mysql://192.168.3.110:3306/design_competition_seniorman?useUnicode=true&amp;characterEncoding=utf8" />
+			value="jdbc:mysql://192.168.3.110:3306/design_cc?useUnicode=true&amp;characterEncoding=utf8" />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="root" />
 		<beans:property name="timeBetweenEvictionRunsMillis"

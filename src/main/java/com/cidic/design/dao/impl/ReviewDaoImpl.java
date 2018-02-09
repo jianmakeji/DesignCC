@@ -60,15 +60,15 @@ public class ReviewDaoImpl implements ReviewDao {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
 		if (scoreSign == 0){ //所有评分的作品
-			hql = " select p.id,p.title,p.groupId,p.userId,p.content,p.attachFile,p.createTime,p.thumb,p.pimage,p.category,r.score "
+			hql = " select p.id,p.title,p.userId,p.content,p.demoAddress,p.createTime,p.pimage,p.fileType,r.score "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? order by createtime desc";
 		}
 		else if (scoreSign == 1){ //已评分的作品
-			hql = " select p.id,p.title,p.groupId,p.userId,p.content,p.attachFile,p.createTime,p.thumb,p.pimage,p.category,r.score "
+			hql = " select p.id,p.title,p.userId,p.content,p.demoAddress,p.createTime,p.pimage,p.fileType,r.score "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score > 0 order by createtime desc";
 		}
 		else if (scoreSign == 2){//未评分的作品
-			hql = " select p.id,p.title,p.groupId,p.userId,p.content,p.attachFile,p.createTime,p.thumb,p.pimage,p.category,r.score "
+			hql = " select p.id,p.title,p.userId,p.content,p.demoAddress,p.createTime,p.pimage,p.fileType,r.score "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score = 0 order by createtime desc";
 		}
 		
@@ -87,25 +87,21 @@ public class ReviewDaoImpl implements ReviewDao {
             Object []o = (Object[])list.get(i);
             int pId = ((Number)o[0]).intValue();
             String title = (String)o[1];
-            int gId = ((Number)o[2]).intValue();
-            int uId = (Integer)o[3];
-            String content = (String)o[4];
-            String attachFile = (String)o[5];
-            Date createTime = (Date)o[6];
-            String thumb = (String)o[7];
-            String pimage = (String)o[8];
-            byte category = (Byte)o[9];
-            float score = ((Number)o[10]).floatValue();
+            int uId = (Integer)o[2];
+            String content = (String)o[3];
+            String demoAddress = (String)o[4];
+            Date createTime = (Date)o[5];
+            String pimage = (String)o[6];
+            byte fileType = (Byte)o[7];
+            float score = ((Number)o[8]).floatValue();
             production.setId(pId);
             production.setTitle(title);
-            production.setGroupId(gId);
             production.setUserId(uId);
             production.setContent(content);
-            production.setAttachFile(attachFile);
+            production.setDemoAddress(demoAddress);
             production.setCreateTime(createTime);
-            production.setThumb(thumb);
             production.setPimage(pimage);
-            production.setCategory(category);
+            production.setFileType(fileType);;
             production.setScore(score);
             pList.add(production);
         }

@@ -31,9 +31,9 @@ public class Production implements java.io.Serializable {
 	private int groupId;
 	private int userId;
 	private String content;
-	private String attachFile;
+	private byte fileType;
+	private String demoAddress;
 	private Date createTime;
-	private String thumb;
 	private Float score;
 	private Byte status; //1.已提交、2.审核未通过、3.审核已通过、4.初选入围、5.初选未入围、6.复选入围、7复选未入围
 	private String pimage;
@@ -64,17 +64,17 @@ public class Production implements java.io.Serializable {
 		this.createTime = createTime;
 	}
 
-	public Production(String title, int groupId, int userId, String thumb, String pimage, String content,
-			String attachFile, Byte status, byte category, byte participantType, String participantName,
+	public Production(String title, int groupId, int userId, byte fileType, String pimage, String content,
+			String demoAddress, Byte status, byte category, byte participantType, String participantName,
 			String participantIdNumber, String participantBrief, String teamMember, String weblink, Float score,
 			Date createTime) {
 		this.title = title;
 		this.groupId = groupId;
 		this.userId = userId;
-		this.thumb = thumb;
+		this.fileType = fileType;
 		this.pimage = pimage;
 		this.content = content;
-		this.attachFile = attachFile;
+		this.demoAddress = demoAddress;
 		this.status = status;
 		this.category = category;
 		this.participantType = participantType;
@@ -135,22 +135,22 @@ public class Production implements java.io.Serializable {
 		this.content = content;
 	}
 
-	@Column(name = "thumb", nullable = false)
-	public String getThumb() {
-		return thumb;
+	@Column(name = "fileType")
+	public byte getFileType() {
+		return fileType;
 	}
 
-	public void setThumb(String thumb) {
-		this.thumb = thumb;
+	public void setFileType(byte fileType) {
+		this.fileType = fileType;
 	}
 
-	@Column(name = "attach_file", length = 100)
-	public String getAttachFile() {
-		return this.attachFile;
+	@Column(name = "demoAddress")
+	public String getDemoAddress() {
+		return demoAddress;
 	}
 
-	public void setAttachFile(String attachFile) {
-		this.attachFile = attachFile;
+	public void setDemoAddress(String demoAddress) {
+		this.demoAddress = demoAddress;
 	}
 
 	@Column(name = "status")
