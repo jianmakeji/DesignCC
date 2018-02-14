@@ -17,30 +17,27 @@
 
 	<div class="zyWorkDetail zyMargin150" id="zyWorkDetail">
 		<h3 class="zyTitle">${production.title}</h3>
-		<%
-			Hashtable table = new Hashtable();
-			table.put("1", "产品组");
-			table.put("2", "概念组");
-			pageContext.setAttribute("group", table);
-		%>
-		<span class="zy20C7BE">${group[production.groupId]}</span> <span>${production.participantName}</span>
+		
 		<p class="zyText">${production.content}</p>
 
-		<c:if test="${!empty production.weblink}">
+		<c:if test="${!empty production.h5Address}">
+			<div class="zy20C7BE">H5网页链接:&nbsp;&nbsp;<a class="zy20C7BE" href="${production.h5Address}" target="_blank">H5演示地址</a></div>
+		</c:if>
+
+		<c:if test="${!empty production.videoAddress}">
+			<div style="text-align:center">
+				${production.videoAddress}
+			</div>
+		</c:if>
+		
+		<c:if test="${!empty production.pimage}">
 			<div class="zy20C7BE">
-				网页链接:&nbsp;&nbsp;<a class="zy20C7BE" href="${production.weblink}" target="_blank">${production.weblink}</a>
+				<img src="${production.pimage}" style="margin:10px auto;">
 			</div>
 			<br>
 		</c:if>
 
-		<c:if test="${!empty production.attachFile}">
-			<div class="zy20C7BE">
-				附件下载:&nbsp;&nbsp;<a class="zy20C7BE" href="${production.attachFile}" target="_blank">${production.attachFile}</a>
-			</div>
-			<br>
-		</c:if>
-
-
+		
 	</div>
 
 	<script>
