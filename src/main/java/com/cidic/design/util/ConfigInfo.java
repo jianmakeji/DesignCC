@@ -27,4 +27,16 @@ public class ConfigInfo {
 	
 	@Value("${email_review_subject}")
 	public String email_review_subject;
+	
+	@Value("${endpoint}")
+	public String endpoint;
+	
+	@Value("${accessId}")
+	public String accessId;
+	
+	@Value("${accessKey}")
+	public String accessKey;
+	
+	@Value("${bucket}")
+	public String bucket;
 }

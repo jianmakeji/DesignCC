@@ -30,8 +30,8 @@
 				<h5 class="zySubTitle">上传要求</h5>
 				<p class="zyText">
 					1. 作品版面大小为<font class="zyFF0000">A1</font>（841mm×1189mm）图幅，<font class="zyFF0000">竖构图</font>，jpg格式，精度350dpi；<font class="zyFF0000">不得超过5M</font>,设计版面图内容包含主题阐释、核心图形及字体、辅助视觉元素、
-					场景应用示例、必要的结构图、尺寸图及设计说明（必须是中英双语）等。<br> <br> 2.媒体附件1个，H5或在线视频链接形式，就设计方案在影像、动画、Web、印刷品、空间环境或交互装置等媒体形式上的应用进行演示和说明。<br>H5，建议使用“木疙瘩”,“iH5”，“MAKA”等H5工具制作，提供预览链接；
-					<br>在线视频，建议制作视频并上传到优酷或腾讯视频，提供预览通用代码。<br>
+					场景应用示例、必要的结构图、尺寸图及设计说明（必须是中英双语）等。<br> <br> 2.媒体附件1个，H5或在线视频链接形式，就设计方案在影像、动画、Web、印刷品、空间环境或交互装置等媒体形式上的应用进行演示和说明。H5，建议使用“木疙瘩”,“iH5”，“MAKA”等H5工具制作，提供预览链接；
+					在线视频，建议制作视频并上传到优酷或腾讯视频，提供预览通用代码。<br>
 					<br> 另外，为保证本次大赛评选的公正性，参赛作品及 版面上不得出现作者所在单位、姓名（包括英文或 拼音缩写）或与作者身份有关的任何图标、图形等 个人信息资料。
 				</p>
 			</div>
@@ -180,21 +180,36 @@
 						<div class="zyFormRow">
 							<label class="zyFormLabel">H5网址</label>
 							<div class="zyFormControl">
-								<input type="text" name="weblink" class="zyInput">
+								<input type="text" name="h5Address" class="zyInput">
 							</div>
 						</div>
 						
-
+						<div class="zyFormRow">
+							<label class="zyFormLabel">视频分享地址</label>
+							<div class="zyFormControl">
+								<textarea id="videoAddress" name="videoAddress" class="zyInput zyTextarea"></textarea>
+							</div>
+						</div>
+						
 						<div class="zyFormRow">
 							<label class="zyFormLabel">图片1</label>
 							<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-								<a class="zyBtn zyBtnGray" id="uploadImageBtn1"> +&nbsp;上传 </a> <img id="image1" class="zyActionOtherImage" style="width: 100px"
-									src="resources/frontend/images/app/defaultImage.jpg" /> <input type="hidden" id="imageUrl1" name="image" class="zyActionRequired zyActionOtherImageValue">
+								<img id="uploadBg" class="zyActionOtherImage" style="width: 300px;height:430px" src="resources/frontend/images/app/defaultImage.jpg" /> 
+								<div id="uploadBgInfo" style="width:300px">
+									<div id="ossBgfile">
+										<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
+											<div  id="ossBgProgress"  class="progress">
+												<div class="determinate" style="width: 1%"></div>
+											</div>
+										</div>
+									</div>
+									<pre id="bgConsole"></pre>
+									<p>&nbsp;</p>
+								</div>
 							</div>
 							<span class="zyRequired">*</span>
 						</div>
 						
-
 					</div>
 
 					
@@ -218,21 +233,19 @@
 
 		<script type="text/template" id="zyPreviewTpl">
             <h3 class="zyTitle">$ZY{title}</h3>
-            <span class="zy20C7BE">$ZY{group}</span>
             <span>$ZY{participantName}</span>
             <p class="zyText">$ZY{content}</p>
-            {@if weblink}
-                <div class="zy20C7BE">网页链接:&nbsp;&nbsp;<a class="zy20C7BE" href="$ZY{weblink}" target="_blank">$ZY{weblink}</a></div>
-                <br>
-            {@/if}
-            {@if attachFile}
-                <div class="zy20C7BE">附件下载:&nbsp;&nbsp;<a class="zy20C7BE" href="$ZY{attachFile}" target="_blank">$ZY{attachFile}</a></div>
-                <br>
+            {@if h5Address}
+               <div class="zy20C7BE">H5网页链接:&nbsp;&nbsp;<a class="zy20C7BE" href="$ZY{h5Address}" target="_blank">H5演示地址</a></div>
             {@/if}
 
-            {@each pimageArray as i}
-                <img src="$ZY{i}" style="margin:10px auto;">
-            {@/each}
+            {@if videoAddress}
+               <div id="videoContainer" style="text-align:center"></div>
+            {@/if}
+
+            {@if pimage}
+                <img src="$ZY{pimage}" style="margin:10px auto;">
+            {@/if}
         </script>
 
 		<div class="zyTCenter" style="margin-top: 50px;">
@@ -255,6 +268,7 @@
 	<script src="resources/js/src/functions.js"></script>
 	<script src="resources/js/src/ZYFormHandler.js"></script>
 	<script src="resources/js/src/ZYCOUHandler.js"></script>
+	<script src="resources/frontend/js/src/ossupload.js"></script>
 	<script src="resources/frontend/js/src/uploadWork.js"></script>
 	<script src="resources/frontend/js/src/header.js"></script>
 </body>

@@ -60,15 +60,15 @@ public class ReviewDaoImpl implements ReviewDao {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
 		if (scoreSign == 0){ //所有评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.demoAddress,p.createTime,p.pimage,p.fileType,r.score "
+			hql = " select p.id,p.title,p.userId,p.content,p.videoAddress,p.createTime,p.pimage,p.fileType,r.score, p.h5Address  "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? order by createtime desc";
 		}
 		else if (scoreSign == 1){ //已评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.demoAddress,p.createTime,p.pimage,p.fileType,r.score "
+			hql = " select p.id,p.title,p.userId,p.content,p.videoAddress,p.createTime,p.pimage,p.fileType,r.score, p.h5Address "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score > 0 order by createtime desc";
 		}
 		else if (scoreSign == 2){//未评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.demoAddress,p.createTime,p.pimage,p.fileType,r.score "
+			hql = " select p.id,p.title,p.userId,p.content,p.videoAddress,p.createTime,p.pimage,p.fileType,r.score, p.h5Address "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score = 0 order by createtime desc";
 		}
 		
@@ -89,20 +89,22 @@ public class ReviewDaoImpl implements ReviewDao {
             String title = (String)o[1];
             int uId = (Integer)o[2];
             String content = (String)o[3];
-            String demoAddress = (String)o[4];
+            String videoAddress = (String)o[4];
             Date createTime = (Date)o[5];
             String pimage = (String)o[6];
             byte fileType = (Byte)o[7];
             float score = ((Number)o[8]).floatValue();
+            String h5Address = (String)o[9];
             production.setId(pId);
             production.setTitle(title);
             production.setUserId(uId);
             production.setContent(content);
-            production.setDemoAddress(demoAddress);
+            production.setVideoAddress(videoAddress);
             production.setCreateTime(createTime);
             production.setPimage(pimage);
             production.setFileType(fileType);;
             production.setScore(score);
+            production.setH5Address(h5Address);
             pList.add(production);
         }
 		return pList;
