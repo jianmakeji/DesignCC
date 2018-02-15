@@ -45,9 +45,7 @@ var works = (function (config, functions) {
                             if (results[i].status > 1) {
                                 results[i].canEdit = false;
                             }
-                            results[i].category = config.workType[results[i].category];
                             results[i].status = config.workStatus[results[i].status];
-                            results[i].group = config.workGroup[results[i].groupId];
                         }
 
                         trTpl = $("#zyTrTpl").html();

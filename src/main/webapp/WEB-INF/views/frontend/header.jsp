@@ -26,7 +26,7 @@
 			
 			<ul class="zyUserMenu">
 				<c:if test="${!empty sessionScope.userId}">
-					<li class="zyItem"><a href="production/works" class="zyLink zy20C7BE"> [ ${sessionScope.realname} ]</a></li>
+					<li class="zyItem"><a href="production/works" class="zyLink zy20C7BE"> [${sessionScope.realname}]</a></li>
 					<li class="zyItem"><a class="zyLink" href="logout">退出</a></li>
 				</c:if>
 				<c:if test="${empty sessionScope.userId}">

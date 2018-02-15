@@ -40,7 +40,7 @@
 			table.put("2", "概念组");
 			pageContext.setAttribute("group", table);
 		%>
-		<span class="zy20C7BE">${group[production.groupId]}</span><!-- <span>${production.participantName}</span> --> 
+		<span class="zy20C7BE">${group[production.groupId]}</span>
 		<p class="zyText">${production.content}</p>
 
 		<c:if test="${!empty production.weblink}">

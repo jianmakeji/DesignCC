@@ -93,18 +93,10 @@ jQuery(document).ready(function($){
 			finalTop = (windowHeight - finalHeight)/2 - 100,
 			quickViewWidth = ( windowWidth * .8 < maxQuickWidth ) ? windowWidth * .8 : maxQuickWidth ,
 			quickViewLeft = (windowWidth - quickViewWidth)/2;
-
-		console.log("topSelected:"+topSelected);
-		console.log("leftSelected:"+leftSelected);
-		console.log("widthSelected:"+widthSelected);
-		console.log("heightSelected:"+heightSelected);
-		console.log("windowWidth:"+windowWidth);
-		console.log("windowHeight:"+windowHeight);
-		console.log("finalLeft:"+finalLeft);
-		console.log("finalHeight:"+finalHeight);
-		console.log("finalTop:"+finalTop);
-		console.log("quickViewWidth:"+quickViewWidth);
-		console.log("quickViewLeft:"+quickViewLeft);
+		
+		if (windowHeight < 800){
+			finalTop = 20;
+		}
 		
 		if( animationType == 'open') {
 			//hide the image in the gallery
@@ -136,14 +128,12 @@ jQuery(document).ready(function($){
 			    'top': finalTop+ 'px',
 			    'left': finalLeft+'px',
 			    'width': finalWidth+'px',
-			    'height':'400px',
 			}, 300, 'ease', function(){
 				$('body').removeClass('overlay-layer');
 				$('.cd-quick-view').removeClass('animate-width').velocity({
 					"top": topSelected,
 				    "left": leftSelected,
 				    "width": widthSelected,
-				    "height":"850px",
 				}, 500, 'ease', function(){
 					$('.cd-quick-view').removeClass('is-visible');
 					parentListItem.removeClass('empty-box');

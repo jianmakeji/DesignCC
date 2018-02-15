@@ -21,24 +21,13 @@
 			<thead>
 				<tr>
 					<th>标题</th>
-					<th>组别</th>
-					<th>类别</th>
+					<th>简介</th>
 					<th>状态</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
-				<!--<tr>
-                    <td>xxxxx</td>
-                    <td>概念组</td>
-                    <td>智能生活</td>
-                    <td>状态</td>
-                    <td>
-                        <a href="#" class="zyAction zyIconCheck">查看</a>&nbsp;
-                        <a href="#"  class="zyAction zyIconEdit">修改</a>&nbsp;
-                        <a href="#"  class="zyAction zyIconRemove">删除</a>
-                    </td>
-                </tr>-->
+				
 			</tbody>
 		</table>
 	</div>
@@ -52,8 +41,7 @@
         {@each items as i}
         <tr>
             <td>$ZY{i.title}</td>
-            <td>$ZY{i.group}</td>
-            <td>$ZY{i.category}</td>
+            <td>$ZY{i.content}</td>
             <td>$ZY{i.status}</td>
             <td>
                 <a href="production/workDetail/$ZY{i.id}" class="zyAction zyIconCheck" target="_blank">查看</a>&nbsp;

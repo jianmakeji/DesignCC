@@ -71,7 +71,7 @@ public class ReviewController extends DcController {
 	@RequestMapping(value = "/judgeIndex/{round}")
 	public ModelAndView judgeIndex(HttpServletRequest request, Model model, @PathVariable int round) {
 		ModelAndView modelView = new ModelAndView();
-		modelView.setViewName("frontend/judge/index");
+		modelView.setViewName("frontend/judge/judge");
 		Subject subject = SecurityUtils.getSubject();
 		int judgeId = judgeServiceImpl.findJudgeIdByEmail(subject.getSession().getAttribute("email").toString());
 		modelView.addObject("judgeId",judgeId);
