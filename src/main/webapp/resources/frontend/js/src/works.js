@@ -46,6 +46,10 @@ var works = (function (config, functions) {
                                 results[i].canEdit = false;
                             }
                             results[i].status = config.workStatus[results[i].status];
+                            if (results[i].content.length > 50){
+                            	results[i].content = results[i].content.substr(0,50) +'......';
+                            }
+                             
                         }
 
                         trTpl = $("#zyTrTpl").html();
