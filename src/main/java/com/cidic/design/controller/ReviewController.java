@@ -71,9 +71,10 @@ public class ReviewController extends DcController {
 	@RequestMapping(value = "/judgeIndex/{round}")
 	public ModelAndView judgeIndex(HttpServletRequest request, Model model, @PathVariable int round) {
 		ModelAndView modelView = new ModelAndView();
-		modelView.setViewName("frontend/judge/judge");
+		modelView.setViewName("redirect:/judge");
 		Subject subject = SecurityUtils.getSubject();
 		int judgeId = judgeServiceImpl.findJudgeIdByEmail(subject.getSession().getAttribute("email").toString());
+		
 		modelView.addObject("judgeId",judgeId);
 		modelView.addObject("round",round);
 		return modelView;
@@ -154,6 +155,7 @@ public class ReviewController extends DcController {
 			return resultModel;
 		}
 		catch(Exception e){
+			e.printStackTrace();
 			throw new DCException(500, "修改出错");
 		}
 	}
@@ -228,7 +230,8 @@ public class ReviewController extends DcController {
 	@ResponseBody
 	@RequestMapping(value="/getReviewListByUserId", method = RequestMethod.POST)
 	public ResultModel getReviewListByUserId(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam int userId, @RequestParam int scoreSign,  @RequestParam int round, @RequestParam  int offset,@RequestParam  int limit){
+			@RequestParam int userId, @RequestParam int scoreSign,  @RequestParam int round, 
+			@RequestParam  int offset, @RequestParam  int limit){
 		resultModel = new ResultModel();
 		try{
 			ProdutionPageModel produtionPageModel = reviewServiceImpl.getReviewListByUserId(userId,scoreSign, round, offset, limit);

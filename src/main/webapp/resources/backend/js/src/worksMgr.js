@@ -55,30 +55,12 @@ var worksMgr=(function(config,functions){
                         },
                         "aoColumns": [
 							{ "mDataProp": "id"},
-                            { "mDataProp": "thumb",
+                            { "mDataProp": "pimage",
                                 "fnRender":function(oObj){
-                                    return '<img class="thumb" src="'+oObj.aData.thumb+'">';
+                                    return '<img class="thumb" src="'+oObj.aData.pimage+'?x-oss-process=style/thumb_210_300">';
                                 }
                             },
                             { "mDataProp": "title"},
-                            { "mDataProp": "groupId",
-                                "fnRender":function(oObj){
-                                    return config.workGroup[oObj.aData.groupId];
-                                }
-                            },
-                            { "mDataProp": "category",
-                               "fnRender":function(oObj){
-                                	if (oObj.aData.category == 1){
-                                		return '生活辅助类';
-                                	}
-                                	else if (oObj.aData.category == 2){
-                                		return '智能养老类';
-                                	}
-                                	else if (oObj.aData.category == 3){
-                                		return '综合设计类';
-                                	}
-                                }
-                             },
                             { "mDataProp": "score",
                                 "fnRender":function(oObj){
                                 	if (oObj.aData.score){

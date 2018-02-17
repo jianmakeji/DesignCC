@@ -64,8 +64,6 @@
 								<th>ID</th>
 								<th>缩略图</th>
 								<th>名称</th>
-								<th>组别</th>
-								<th>分类</th>
 								<th>分数</th>
 								<th>状态</th>
 								<th>所在评审轮次</th>

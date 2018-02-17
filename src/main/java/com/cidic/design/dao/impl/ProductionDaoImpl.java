@@ -389,7 +389,8 @@ public class ProductionDaoImpl implements ProductionDao {
 		String sql = "select status from production where Id = ? ";
 		Query query = session.createSQLQuery(sql);
 		query.setParameter(0, id);
-		return (int)query.uniqueResult();
+		int result = (Byte)query.uniqueResult()&0xff;
+		return result;
 	}
 
 }

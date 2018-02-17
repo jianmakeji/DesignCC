@@ -124,7 +124,7 @@ public class FileDisposeController extends DcController{
 	public ResponseEntity<byte[]> getImage(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam String imgPath) throws IOException {
 		String path = request.getSession().getServletContext().getRealPath(File.separator + "WEB-INF");
-		
+		System.out.println(path+imgPath);
 		File file = new File(path + imgPath);
 
 		HttpHeaders headers = new HttpHeaders();

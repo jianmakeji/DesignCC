@@ -131,9 +131,10 @@ jQuery(document).ready(function($){
 			}, 300, 'ease', function(){
 				$('body').removeClass('overlay-layer');
 				$('.cd-quick-view').removeClass('animate-width').velocity({
-					"top": topSelected,
-				    "left": leftSelected,
+					"top": $(window).width()/2,
+				    "left": $(window).height()/2,
 				    "width": widthSelected,
+				    "height":heightSelected,
 				}, 500, 'ease', function(){
 					$('.cd-quick-view').removeClass('is-visible');
 					parentListItem.removeClass('empty-box');

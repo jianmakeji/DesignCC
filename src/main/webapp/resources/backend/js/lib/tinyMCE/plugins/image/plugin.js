@@ -204,7 +204,7 @@ tinymce.PluginManager.add('image', function(editor) {
             uploader.bind("FileUploaded", function (up, file, res) {
                 var response = JSON.parse(res.response);
                 win.find("#src").value(document.getElementById("baseUrl").getAttribute("href")+
-                    config.ajaxUrls.imageGet+"?imgPath="+response.object);
+                    config.ajaxUrls.imageGet+"?imgPath="+encodeURIComponent(response.object));
             });
 
 

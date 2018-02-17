@@ -37,11 +37,11 @@ $(document).ready(function(){
         filesAddedCb:null,
         progressCb:null,
         uploadedCb:function(info,file,up){
-            functions.getImageSize(config.ajaxUrls.imageGet+"?imgPath="+info.object,function(imageSizeMap){
+            functions.getImageSize(config.ajaxUrls.imageGet+"?imgPath="+encodeURIComponent(info.object),function(imageSizeMap){
                 if(imageSizeMap.width==imageSizeMap.height){
-                    $("#imageUrl").val(config.ajaxUrls.imageGet+"?imgPath="+info.object);
+                    $("#imageUrl").val(config.ajaxUrls.imageGet+"?imgPath="+encodeURIComponent(info.object));
 
-                    $("#image").attr("src",config.ajaxUrls.imageGet+"?imgPath="+info.object);
+                    $("#image").attr("src",config.ajaxUrls.imageGet+"?imgPath="+encodeURIComponent(info.object));
 
                     $(".error[for='imageUrl']").remove();
                 }else{
