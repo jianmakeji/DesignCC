@@ -68,6 +68,14 @@ public class ReviewController extends DcController {
 		return "backend/scoreMgr";
 	}
 	
+	@RequestMapping(value = "/videoPreview")
+	public ModelAndView videoPreview(HttpServletRequest request, Model model) {
+		ModelAndView modelView = new ModelAndView();
+		modelView.setViewName("/frontend/judge/videoPreview");
+		modelView.addObject("videoAddress",request.getParameter("videoAddress"));
+		return modelView;
+	}
+	
 	@RequestMapping(value = "/judgeIndex/{round}")
 	public ModelAndView judgeIndex(HttpServletRequest request, Model model, @PathVariable int round) {
 		ModelAndView modelView = new ModelAndView();

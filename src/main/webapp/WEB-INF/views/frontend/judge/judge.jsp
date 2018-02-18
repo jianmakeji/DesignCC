@@ -62,7 +62,10 @@
 				<h2>{{title}}</h2>
 				<p>{{content}}</p>
 				<div v-if="h5Address != '' ">
-					H5演示版本：<a :href="h5Address">点击查看详情</a>
+					H5演示版本：<a :href="h5Address"  target="_blank">点击查看详情</a>
+				</div>
+				<div v-if="videoAddress != '' ">
+					视频演示版本：<a :href="videoAddress" target="_blank">点击查看详情</a>
 				</div>
 				<div>
 					<ul class="cd-item-action">
@@ -160,7 +163,7 @@
 							  this.score = this.list[i].score;
 							  this.title = this.list[i].title;
 							  this.h5Address = this.list[i].h5Address;
-							  this.videoAddress = this.list[i].videoAddress;
+							  this.videoAddress = "review/videoPreview?videoAddress="+this.list[i].videoAddress.replace(/&/g,'%26');
 							  this.productionId = this.list[i].id;
 							  break;  
 						  }
