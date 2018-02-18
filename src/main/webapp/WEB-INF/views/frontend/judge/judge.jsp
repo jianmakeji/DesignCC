@@ -163,7 +163,16 @@
 							  this.score = this.list[i].score;
 							  this.title = this.list[i].title;
 							  this.h5Address = this.list[i].h5Address;
-							  this.videoAddress = "review/videoPreview?videoAddress="+this.list[i].videoAddress.replace(/&/g,'%26');
+							  var tempVideoAddress = this.list[i].videoAddress;
+							  if (tempVideoAddress.indexOf('width="480" height="400"') >= 0){
+								  tempVideoAddress = tempVideoAddress.replace('width="480" height="400"','width="720" height="600"');
+							  }
+							 
+							  if (tempVideoAddress.indexOf('width="640" height="498"') >= 0){
+								  tempVideoAddress = tempVideoAddress.replace('width="640" height="498"','width="720" height="600"');
+							  }
+							  
+							  this.videoAddress = "review/videoPreview?videoAddress="+tempVideoAddress.replace(/&/g,'%26');
 							  this.productionId = this.list[i].id;
 							  break;  
 						  }

@@ -27,7 +27,7 @@ body{
 		 
 		 $("#content").css({ 
 		        position: "absolute", 
-		        left: ($(window).width())/3, 
+		        left: ($(window).width())/4, 
 		        top: ($(window).height() - $("#content").outerHeight())/2 
 		  });
 	});
