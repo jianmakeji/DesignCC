@@ -238,6 +238,9 @@
 						if (windowHeight < 800){
 							finalTop = 20;
 						}
+						else{
+							finalTop = 100;
+						}
 						
 						if( animationType == 'open') {
 							//hide the image in the gallery

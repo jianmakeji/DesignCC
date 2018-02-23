@@ -226,7 +226,7 @@ header h1 {
     display: block;
     position: fixed;
     max-width: 1200px;
-    height:850px;
+    height:750px;
     visibility: hidden;
     /* Force Hardware Acceleration in WebKit */
     -webkit-transform: translateZ(0);
@@ -260,7 +260,7 @@ header h1 {
 	  display: block;
 	  width: 100%;
 	  max-width: 755.5px;
-	  height:850px;
+	  height:750px;
    }
 }
 
