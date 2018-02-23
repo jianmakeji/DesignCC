@@ -235,10 +235,14 @@
 							quickViewWidth = ( windowWidth * .8 < maxQuickWidth ) ? windowWidth * .8 : maxQuickWidth ,
 							quickViewLeft = (windowWidth - quickViewWidth)/2;
 						
-						if (windowHeight < 800){
+						if (windowHeight <= 730){
 							finalTop = 20;
 						}
-						else{
+						else if (windowHeight > 730 && windowHeight <= 900){
+							finalTop = 60;
+							quickViewLeft = quickViewLeft + 100;
+						}
+						else {
 							finalTop = 100;
 						}
 						

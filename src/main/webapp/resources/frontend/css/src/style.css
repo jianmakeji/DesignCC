@@ -221,7 +221,7 @@ header h1 {
   /* quick view non available on small devices */
   display: none;
 }
-@media only screen and (min-width: 1024px) and (min-height: 900px) {
+@media only screen and (min-width: 1024px) and (min-height: 901px) {
   .cd-quick-view {
     display: block;
     position: fixed;
@@ -264,7 +264,50 @@ header h1 {
    }
 }
 
-@media only screen and (min-width: 1024px) and (max-height: 900px) {
+@media only screen and (min-width: 1024px) and (min-height: 801px) and (max-height: 900px)) {
+  .cd-quick-view {
+    display: block;
+    position: fixed;
+    max-width: 1200px;
+    height:700px;
+    visibility: hidden;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: left, top, width;
+    z-index: 99;
+  }
+  .cd-quick-view:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .cd-quick-view.is-visible {
+    /* class added when user clicks on .cd-trigger */
+    visibility: visible;
+  }
+  .cd-quick-view.animate-width {
+    /* class added at the end of the first zoom-in animation */
+    background-color: #ffffff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    -webkit-transition: box-shadow 0.3s;
+    -moz-transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s;
+  }
+  .cd-slider li img {
+	  display: block;
+	  width: 100%;
+	  max-width: 755.5px;
+	  height:700px;
+   }
+}
+
+@media only screen and (min-width: 1024px) and (max-height: 800px) {
   .cd-quick-view {
     display: block;
     position: fixed;
